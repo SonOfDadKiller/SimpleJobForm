@@ -1,5 +1,9 @@
 name: Azure Static Web Apps CI/CD
 env:
+  # Point frontend to backend
+  REACT_APP_API_URL: ${{ vars.REACT_APP_API_URL }}
+  REACT_APP_HUB_URL: ${{ vars.REACT_APP_HUB_URL }}
+  # Disable 'treat warnings as errors' when building
   CI: false
 
 on:
@@ -46,4 +50,5 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ASHY_BEACH_0C3670500 }}
           action: "close"
+
 
