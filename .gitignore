@@ -137,3 +137,11 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+.idea/
+bin/
+obj/
+*.user
+*.suo
+appsettings.Development.json
+
