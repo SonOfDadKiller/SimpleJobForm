@@ -19,8 +19,10 @@ export function useApplicationHub(formId: string | null, token: string | null)
 
         let cancelled = false;
 
+        const hubUrl = process.env.REACT_APP_HUB_URL || '/hubs/applications'
+
         const connection = new signalR.HubConnectionBuilder()
-            .withUrl('/hubs/applications', {
+            .withUrl(hubUrl, {
                 accessTokenFactory: () => token,
                 transport: signalR.HttpTransportType.WebSockets,
                 skipNegotiation: true,
