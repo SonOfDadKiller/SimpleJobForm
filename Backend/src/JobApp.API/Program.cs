@@ -85,10 +85,11 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowFrontend", policy => 
         policy.WithOrigins(
                 "http://localhost:3000",
-                "https://ashy-beach-0c3670500.2.azurestaticapps.net/"
+                "https://ashy-beach-0c3670500.2.azurestaticapps.net//"
             )
             .AllowAnyHeader()
-            .AllowAnyMethod());
+            .AllowAnyMethod()
+            .AllowCredentials());
 });
 
 var app = builder.Build();
