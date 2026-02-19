@@ -14,6 +14,7 @@ export default function DashboardPage() {
 
     // Load forms when the page mounts
     useEffect(() => {
+        document.title = 'Dashboard - Jobs';
         loadForms();
     }, []);
 

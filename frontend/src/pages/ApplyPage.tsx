@@ -15,6 +15,10 @@ export default function ApplyPage() {
         loadForm();
     }, [slug]);
 
+    useEffect(() => {
+        document.title = `Apply: ${formTitle}`;
+    }, [formTitle]);
+
     const loadForm = async () => {
         try {
             const response = await api.get(`/forms/${slug}`);
