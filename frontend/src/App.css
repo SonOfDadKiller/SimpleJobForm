@@ -89,6 +89,10 @@ body {
   align-items: flex-start;
 }
 
+.flex-end {
+  align-items: flex-end;
+}
+
 .stretch {
   align-items: stretch;
 }
@@ -138,6 +142,10 @@ button {
 button:hover {
   background: #4c74db;
   border: 1px solid #5E8BFF;
+}
+
+.error {
+  color: red;
 }
 
 .circular-button {
@@ -346,3 +354,46 @@ select option {
   white-space: pre-wrap;
 }
 
+.gap {
+  width: 24;
+}
+
+.loader-parent {
+  display: flex;
+  gap: 1px;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.loader-text {
+  width: max-content;
+  flex-grow: 1;
+  position: absolute;
+}
+
+.loader {
+  margin-left: auto;
+  border: 2px solid #f3f3f300; /* Light grey border */
+  border-top: 2px solid #3498db00; /* Blue border that spins */
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite; /* Apply the spin animation */
+}
+
+.loader-reveal {
+  border: 2px solid #f3f3f3; /* Light grey border */
+  border-top: 2px solid #3498db; /* Blue border that spins */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* div { border: 1px dotted pink }
+p   { border: 1px solid green }
+a   { border: 2px solid yellow }
+li  { border: 1px dashed cyan }
+img { border: 1px solid purple}
+button { border: 1px solid purple} */
