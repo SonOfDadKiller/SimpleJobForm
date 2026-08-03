@@ -82,13 +82,28 @@ builder.Services.AddSwaggerGen(options =>
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend", policy => 
-        policy.WithOrigins("http://localhost:3000")
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        var origins = new List<string> { "http://localhost:3000" };
+        var configuredOrigin = builder.Configuration["Cors:AllowedOrigin"];
+        if (!string.IsNullOrWhiteSpace(configuredOrigin))
+        {
+            origins.Add(configuredOrigin);
+        }
+        policy.WithOrigins(origins.ToArray())
             .AllowAnyHeader()
-            .AllowAnyMethod());
+            .AllowAnyMethod()
+            .AllowCredentials();
+    });
 });
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
