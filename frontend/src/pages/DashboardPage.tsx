@@ -33,14 +33,9 @@ export default function DashboardPage() {
         <div className="dashboard-layout">
 
             <div className="sidebar">
-
-                
                 <div className="sidebar-header">
                     <h3>Your Forms</h3>
                 </div>
-
-                
-                
                 <>
                     {forms.length === 0 ? (
                         <p>No forms yet.</p>
