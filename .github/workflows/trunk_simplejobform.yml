@@ -59,3 +59,4 @@ jobs:
           output_location: build
         env:
           REACT_APP_API_BASE_URL: ${{ env.API_BASE_URL }}
+          CI: false
